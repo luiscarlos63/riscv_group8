@@ -1,0 +1,74 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7z010clg400-1",
+      "name": "riscv32i",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2019.2"
+    },
+    "design_tree": {
+      "riscvsingle_0": "",
+      "dmem_0": "",
+      "imem_0": ""
+    },
+    "components": {
+      "riscvsingle_0": {
+        "vlnv": "ManuelRodriguez.org:user:riscvsingle:1.0",
+        "xci_name": "riscv32i_riscvsingle_0_0"
+      },
+      "dmem_0": {
+        "vlnv": "ManuelRodriguez.org:user:dmem:1.0",
+        "xci_name": "riscv32i_dmem_0_0"
+      },
+      "imem_0": {
+        "vlnv": "ManuelRodriguez.org:user:imem:1.0",
+        "xci_name": "riscv32i_imem_0_0"
+      }
+    },
+    "nets": {
+      "Net": {
+        "ports": [
+          "riscvsingle_0/clk",
+          "dmem_0/clk"
+        ]
+      },
+      "riscvsingle_0_MemWrite": {
+        "ports": [
+          "riscvsingle_0/MemWrite",
+          "dmem_0/we"
+        ]
+      },
+      "riscvsingle_0_ALUResult": {
+        "ports": [
+          "riscvsingle_0/ALUResult",
+          "dmem_0/a"
+        ]
+      },
+      "riscvsingle_0_WriteData": {
+        "ports": [
+          "riscvsingle_0/WriteData",
+          "dmem_0/wd"
+        ]
+      },
+      "dmem_0_rd": {
+        "ports": [
+          "dmem_0/rd",
+          "riscvsingle_0/ReadData"
+        ]
+      },
+      "riscvsingle_0_PC": {
+        "ports": [
+          "riscvsingle_0/PC",
+          "imem_0/a"
+        ]
+      },
+      "imem_0_rd": {
+        "ports": [
+          "imem_0/rd",
+          "riscvsingle_0/Instr"
+        ]
+      }
+    }
+  }
+}
